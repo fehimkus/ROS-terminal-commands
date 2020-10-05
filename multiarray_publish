@@ -1,8 +1,7 @@
-rostopic pub motor/speed std_msgs/Int16MultiArray "layout:
+rostopic pub -r 5 /imu std_msgs/Float32MultiArray "layout:
   dim:
   - label: ''
     size: 0
     stride: 0
-  data_offset: 0
-data:
-- 0"
+  data_offset: 1
+data: [0.1, 0.1]"
