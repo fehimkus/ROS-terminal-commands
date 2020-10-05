@@ -1,0 +1,2 @@
+sudo chmod a+rw /dev/rfcomm0
+rosrun rosserial_python serial_node.py /dev/rfcomm0
