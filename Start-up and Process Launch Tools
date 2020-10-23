@@ -1,0 +1,25 @@
+Start-up and Process Launch Tools
+
+roscore
+The basis nodes and programs for ROS-based systems.  
+A roscore must be running for ROS nodes to communicate.
+Usage:
+$ roscore
+ 
+rosrun
+Runs a ROS package’s executable with minimal typing.
+Usage:
+$ rosrun packagename executablename
+Example (runs turtlesim):$ rosrun turtlesim turtlesimnode
+
+roslaunch
+Starts a roscore (if needed), local nodes, remote nodes viaSSH, and sets parameter server parameters.
+Examples:
+Launch a file in a package:
+$ roslaunch packagename filename.launch
+Launch on a different port:
+$ roslaunch -p 1234 packagename filename.launch
+Launch on the local nodes:
+$ roslaunch --local packagename filename.launch
+
+

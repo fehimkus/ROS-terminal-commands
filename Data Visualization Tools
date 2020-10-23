@@ -1,0 +1,20 @@
+view_frames
+A tool for visualizing the full tree of coordinate transforms.
+Usage:
+$ rosrun tf2_tools view_frames.py
+$ evince frames.pdf
+
+rqt_plot
+A tool for plotting data from ROS topic fields.
+Examples:
+To graph the data in different plots:
+$ rqt_plot /topic1/field1 /topic2/field2
+To graph the data all on the same plot:
+$ rqt_plot /topic1/field1,/topic2/field2
+To graph multiple fields of a message:
+$ rqt_plot /topic1/field1:field2:field3
+
+rqt_imageview
+A tool to display image topics.
+Usage:
+$ rqt_image_view

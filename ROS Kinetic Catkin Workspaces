@@ -1,0 +1,48 @@
+Create a catkin workspace
+Setup and use a new catkin workspace from scratch.
+Example:
+$ source /opt/ros/kinetic/setup.bash
+$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkinws/src
+$ catkin_init_workspace
+
+Checkout an existing ROS package
+Get a local copy of the code for an existing package and keepit up to date using wstool.
+Examples:
+$ cd ~/catkin_ws/src
+$ wstool init
+$ wstool set tut --git git://github.com/ros/rostutorials.git
+$ wstool update
+
+Create a new catkin ROS package
+Create a new ROS catkin package in an existing workspacewith catkin create package.
+Usage:
+$ catkin_createpkg <packagename> [depend1] [depend2]
+Example:
+$ cd ~/catkin_ws/src
+$ catkincreatepkg tutorials stdmsgs rospy roscpp
+
+Build all packages in a workspace
+Use catkin_make to build all the packages in the workspace and then source the setup.bash to add the workspace to the ROS_PACKAGE_PATH.
+Examples:
+$ cd ~/catkin_ws
+$ ~/catkin_make
+$ source devel/setup.bash
+
+CMakeLists.txt
+Your CMakeLists.txt file MUST follow this format otherwiseyour packages will not build correctly.
+cmakeminimumrequired() Specify the name of the packageproject() Project name which can refer as ${PROJECT_NAME} findpackage() Find other packages needed for buildcatkinpackage() Specify package build info export
+Build Executables and Libraries:Use CMake function to build executable and library targets.These macro should call aftercatkinpackage() to usecatkin*variables.
+includedirectories(include ${catkin_INCLUDE_DIRS})
+add_executable(hoge src/hoge.cpp)
+add_library(fuga src/fuga.cpp)
+target_link_libraries(hoge fuga ${catkin_LIBRARIES})
+Message generation:
+There are add_{message,service,action}_files() macros to handle messages,services and actions respectively. They must call before catkin_package().
+find_package(catkin COMPONENTS message_generation std_msgs)
+add_message_files(FILES Message1.msg)
+generate_messages(DEPENDENCIES std_msgs)
+catkin_package(CATKINDEPENDS message_runtime)
+If your package builds messages as well as executables that use them, you need to create an explicit dependency.
+add_dependencies(hoge ${PROJECTNAME}generate_messages_cpp)
+

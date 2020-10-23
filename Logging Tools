@@ -1,0 +1,37 @@
+rosbag
+A set of tools for recording and playing back of ROS topics.
+Commands:
+rosbag record       Record a bag file with specified topics.
+rosbag play         Play content of one or more bag files.
+rosbag compress     Compress one or more bag files.
+rosbag decompress   Decompress one or more bag files.
+rosbag filter       Filter the contents of the bag.
+Examples:
+Record select topics:
+$ rosbag record topic1 topic2
+Replay all messages without waiting:
+$ rosbag play -a demo_log.bag
+Replay several bag files at once:
+$ rosbag play demo1.bag demo2.bag
+
+tf_echo
+A tool that prints the information about a particular transformation between a source_frame and a target_frame.
+Usage:
+$ rosrun tf tf_echo <sourceframe> <targetframe>
+Examples:
+To echo the transform between /map and /odom:
+$ rosrun tf tf_echo /map /odom
+
+rqt_console
+A tool to display and filtering messages published on rosout.
+Usage:
+$ rqtconsolerqtbagA tool for visualizing, inspecting, and replaying bag files.
+Usage, viewing:
+$ rqt_bag bag_file.bag
+Usage, bagging:
+$ rqt_bag *press the big red record button.*
+r
+qt_logger_level
+Change the logger level of ROS nodes. This will increase or decrease the information they log to the screen and rqtconsole.
+Usage: viewing 
+$ rqt_logger_level

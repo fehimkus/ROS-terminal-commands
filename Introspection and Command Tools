@@ -1,0 +1,124 @@
+rosnode
+Displays debugging information about ROS nodes, includingpublications, subscriptions and connections.
+Commands:
+rosnode ping      Test connectivity to node.
+rosnode list      List active nodes.
+rosnode info      Print information about a node.
+rosnode machine   List nodes running on a machine.
+rosnode kill      Kill a running node.
+Examples:
+Kill all nodes:
+$ rosnode kill -a
+List nodes on a machine:
+$ rosnode machine aqy.local
+Ping all nodes:
+$ rosnode ping --all
+
+
+rostopic
+A tool for displaying information about ROS topics, including publishers, subscribers, publishing rate, and messages.
+Commands:
+rostopic bw      Display bandwidth used by topic.
+rostopic echo    Print messages to screen.
+rostopic find    Find topics by type.
+rostopic hz      Display publishing rate of topic.
+rostopic info    Print information about an active topic.
+rostopic list    List all published topics.
+rostopic pub     Publish data to topic.
+rostopic type    Print topic type.
+Examples:
+Publish hello at 10 Hz:
+$ rostopic pub -r 10 /topic_name stdmsgs/String hello
+Clear the screen after each message is published:
+$ rostopic echo -c /topic_name
+Display messages that match a given Python expression:
+$ rostopic echo --filter "m.data==’foo’" /topic_name
+Pipe the output of rostopic to rosmsg to view the msg type:
+$ rostopic type /topic_name | rosmsg show
+
+rosservice
+A tool for listing and querying ROS services.
+Commands:
+rosservice listPrint information about active services.
+rosservice nodePrint name of node providing a service.
+rosservice callCall the service with the given args.
+rosservice argsList the arguments of a service.
+rosservice typePrint the service type.
+rosservice uriPrint the service ROSRPC uri.
+rosservice findFind services by service type.
+Examples:
+Call a service from the command-line:
+$ rosservice call /add_two_ints 1 2
+Pipe the output of rosservice to rossrv to view the srv type:
+$ rosservice type add_two_ints | rossrv show
+Display all services of a particular type:
+$ rosservice find rospy_tutorials/AddTwoInts
+
+rosparam
+A tool for getting and setting ROS parameters on theparameter server using YAML-encoded files.
+Commands:
+rosparam set          Set a parameter.
+rosparam get          Get a parameter.
+rosparam load         Load parameters from a file.
+rosparam dump         Dump parameters to a file.
+rosparam delete       Delete a parameter.
+rosparam list         List parameter names.
+Examples:
+List all the parameters in a namespace:
+$ rosparam list /namespace
+Setting a list with one as a string, integer, and float:
+$ rosparam set /foo "[’1’, 1, 1.0]"
+Dump only the parameters in a specific namespace to file:
+$ rosparam dump dump.yaml /namespace
+
+rosmsg/rossrv
+Displays Message/Service (msg/srv) data structure definitions.
+Commands:
+rosmsg show           Display the fields in the msg/srv.
+rosmsg list           Display names of all msg/srv.
+rosmsg md5            Display the msg/srv md5 sum.
+rosmsg package        List all the msg/srv in a package.
+rosmsg packages       List all packages containing the msg/srv.
+Examples:
+Display the Pose msg:
+$ rosmsg show Pose
+List the messages in the navmsgs package:
+$ rosmsg package nav_msgs
+List the packages using sensor_msgs/CameraInfo:
+$ rosmsg packages sensor_msgs/CameraInfo
+
+rqt_topic
+A tool for viewing published topics in real time.
+Usage:
+$ rqtPlugin Menu->Topic->Topic Monitor
+
+rqt_msg, rqt_srv, and rqt_action
+A tool for viewing available msgs, srvs, and actions.
+Usage:
+$ rqt
+Plugin Menu->Topic->Message Type Browser
+Plugin Menu->Service->Service Type Browser
+Plugin Menu->Action->Action Type Browser
+
+rqt_top
+A tool for ROS specific process monitoring.
+Usage:
+$ rqt
+Plugin Menu->Introspection->Process Monitor
+
+rqt_publisher, and rqt_service_caller
+Tools for publishing messages and calling services.
+Usage:
+$ rqtPlugin Menu->Topic->Message Publisher
+Plugin Menu->Service->Service Caller
+
+rqt_reconfigure
+A tool for dynamically reconfiguring ROS parameters.
+Usage:
+$ rqtPlugin Menu->Configuration->Dynamic Reconfigure
+
+rqt_graph, and rqt_dep
+Tools for displaying graphs of running ROS nodes withconnecting topics and package dependancies respectively.
+Usage:
+$ rqtgraph
+$ rqtdep

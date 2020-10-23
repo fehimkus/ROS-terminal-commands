@@ -1,0 +1,27 @@
+rospack               A tool for inspecting packages.
+rospack profile       Fixes path and pluginlib problems.
+roscd                 Change directory to a package.
+rospd/rosd            Pushd equivalent for ROS.
+rosls                 Lists package or stack information.
+rosed                 Open requested ROS file in a text editor.
+roscp                 Copy a file from one place to another.
+rosdep                Installs package system dependencies.
+roswtf                Displays a errors and warnings about arunning ROS system or launch file.
+catkin_create_pkg     Creates a new ROS stack.
+wstool                Manage many repos in workspace.
+catkin_make            Builds a ROS catkin workspace.
+rqt_dep                Displays package structure and depen-dencies
+Usage:
+$ rospack find [package]
+$ roscd [package[/subdir]]
+$ rospd [package[/subdir] | +N | -N]
+$ rosd
+$ rosls [package[/subdir]]
+$ rosed [package] [file]
+$ roscp [package] [file] [destination]
+$ rosdep install [package]
+$ roswtf or roswtf [file]
+$ catkin_create_pkg [packagename] [depend1]..[dependN]
+$ wstool [init | set | update]
+$ catkin_make
+$ rqt_dep [options]
