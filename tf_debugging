@@ -1,0 +1,4 @@
+tf_echo-------------- print a specific transform to screen
+tf_monitor----------- display statistics about transforms
+roswtf(tf_plugin)---- Debug common tf configuration errors
+
